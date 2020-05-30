@@ -17,6 +17,7 @@ namespace Laboratorio08
             Initialize();
             this.view = view as Form1;
             this.view.CineCreate += OnCineCreate;
+            this.view.InfoCine += OnInfoCine;
         }
         public void Initialize()
         {
@@ -34,6 +35,23 @@ namespace Laboratorio08
             }
             cines.Add(new Cine(e.Nombre, e.Numero, e.Horarios, e.Salas));
             return true;
+        }
+        public void OnInfoCine(object sender, CineEventArgs e)
+        {
+
+            Cine cine = null;
+            cine = cines.Where(t =>
+               t.NombreDueño.ToLower().Contains(e.Nombre.ToLower()) && t.Codigo == e.Numero).FirstOrDefault();
+
+            if (cine != null)
+            {
+                view.CineInfo(cine.NombreDueño, cine.Codigo, cine.Horario, cine.NumeroSalas);
+            }
+            else
+            {
+                view.NoCine();
+            }
+
         }
     }
 }

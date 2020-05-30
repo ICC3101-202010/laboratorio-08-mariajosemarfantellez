@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace Laboratorio08
 {
-    class ControlTienda
+    public class ControlTienda
     {
         //metodos de tienda, sus eventos
         static List<Tienda> tiendas = new List<Tienda>();
@@ -35,20 +35,23 @@ namespace Laboratorio08
             tiendas.Add(new Tienda(e.Nombre, e.Numero, e.Horarios, e.Categorias));
             return true;
         }
-        public string OnInfoTienda(object sender, TiendaEventArgs e)
+        
+        public void OnInfoTienda(object sender, TiendaEventArgs e)
         {
-            foreach (Tienda t in tiendas)
+            Tienda tienda = null;
+            tienda = tiendas.Where(t =>
+               t.NombreDueño.ToLower().Contains(e.Nombre.ToLower()) && t.Codigo == e.Numero).FirstOrDefault();
+            if (tienda != null)
             {
-                if (t.NombreDueño == e.Nombre && t.Codigo == e.Numero)
-                {
-                    //return true;
-                    return t.CategoriaTienda;
-                }
+                view.TiendaInfo(tienda.NombreDueño, tienda.Codigo, tienda.Horario, tienda.CategoriaTienda);
             }
-            //return false;
-            return e.Categorias;
+            else
+            {
+                view.NoTienda();
+            }
         }
 
+        
 
 
     }

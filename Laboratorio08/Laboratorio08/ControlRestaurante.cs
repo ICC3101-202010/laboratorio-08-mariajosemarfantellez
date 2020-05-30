@@ -17,6 +17,7 @@ namespace Laboratorio08
             RInitialize();
             this.view = view as Form1;
             this.view.RestauranteCreate += OnRestauranteCreate;
+            this.view.InfoRestaurante += OnInfoRestaurante;
         }
         public void RInitialize()
         {
@@ -34,6 +35,21 @@ namespace Laboratorio08
             }
             restaurantes.Add(new Restaurante(e.Nombre, e.Numero, e.Horarios, e.MesasExclusivas));
             return true;
+        }
+        public void OnInfoRestaurante(object sender, RestauranteEventArgs e)
+        {
+
+            Restaurante rest = null;
+            rest = restaurantes.Where(t =>
+               t.NombreDueño.ToLower().Contains(e.Nombre.ToLower()) && t.Codigo == e.Numero).FirstOrDefault();
+            if (rest != null)
+            {
+                view.RestauranteInfo(rest.NombreDueño, rest.Codigo, rest.Horario, rest.Mesas);
+            }
+            else
+            {
+                view.NoRest();
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -26,19 +27,19 @@ namespace Laboratorio08
         }
         */
 
-
-
-        public delegate bool CineEventHandler(object source,CineEventArgs args);
+        public delegate bool CineEventHandler(object source, CineEventArgs args);
         public event CineEventHandler CineCreate;
+        public event EventHandler<CineEventArgs> InfoCine;
         public delegate bool RestauranteEventHandler(object source, RestauranteEventArgs args);
         public event RestauranteEventHandler RestauranteCreate;
+        public event EventHandler<RestauranteEventArgs> InfoRestaurante;
         public delegate bool RecreacionalEventHandler(object source, RecreacionalEventArgs args);
         public event RecreacionalEventHandler RecreacionalCreate;
+        public event EventHandler<RecreacionalEventArgs> InfoRecreacional;
         public delegate bool TiendaEventHandler(object source, TiendaEventArgs args);
         public event TiendaEventHandler TiendaCreate;
-        public event TiendaEventHandler InfoTienda;
+        public event EventHandler<TiendaEventArgs> InfoTienda;
 
-        //public event EventHandler<CineEventArgs> UserChecked;
         public Form1()
         {
             InitializeComponent();
@@ -289,24 +290,206 @@ namespace Laboratorio08
 
         private void TiendaVerbutton_Click(object sender, EventArgs e)
         {
-            string nombredueño = TiendaNombreDueñoTextBox.Text;
+            string nombredueño = TiendaInfoDueñoTextBox.Text;
             bool numcheck = false;
             int numero;
-            numcheck = int.TryParse(TiendaNumeroTextBox.Text, out numero);
+            numcheck = int.TryParse(TiendaInfoNumeroTextBox.Text, out numero);
+            
 
             if (numcheck)
             {
                 OnInfoTienda(nombredueño, numero);
+                
             }
             else
             {
-                //TiendaExistTextBox.Text = "Formato invalido";
+                TiendaInfoExistTextBox.Text = "Esa tienda no existe";
             }
         }
         private void OnInfoTienda(string nombredueño, int numero)
         {
+            if (InfoTienda != null)
+            {
+                InfoTienda(this, new TiendaEventArgs() { Nombre = nombredueño, Numero = numero });
+            }
+        }
+        public void NoTienda()
+        {
+            TiendaInfoExistTextBox.Text = "Esa tienda no existe";
+        }
+        public void NoCine()
+        {
+            CineInfoExistTextBox.Text = "Ese cine no existe";
+        }
+        public void NoRest()
+        {
+            RestInfoExistTextrBox.Text = "Ese restaurante no existe";
+        }
+        public void NoRec()
+        {
+            RecInfoExistTextBox.Text = "Ese centro recreacional no existe";
+        }
 
-           
+        public void TiendaInfo(string nombre, int num, string horario, string categoria)
+        {
+
+            TiendaInfoRich.Text = "Nombre del Dueño: " + nombre + "\n" + "Numero Identificador: " + num + "\n " + "Horario de Atencion: " + horario + "\n " + "Categoria(s): "+ categoria;
+        }
+
+        private void TiendaAtrasButton_Click(object sender, EventArgs e)
+        {
+            TiendaInfoRich.Text = " ";
+            TiendaInfoDueñoTextBox.Text = " ";
+            TiendaInfoNumeroTextBox.Text = " ";
+            TiendaInfoPanel.Visible = false;
+            PanelPrincipal.Visible = true;
+            PanelPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+
+        }
+
+        private void CineInfoVerButton_Click(object sender, EventArgs e)
+        {
+            string nombredueño = CineInfoDueñoTextBox.Text;
+            bool numcheck = false;
+            int numero;
+            numcheck = int.TryParse(CineInfoNumeroTextBox.Text, out numero);
+
+
+            if (numcheck)
+            {
+                OnInfoCine(nombredueño, numero);
+
+            }
+            else
+            {
+                CineInfoExistTextBox.Text = "Ese cine no existe";
+            }
+        }
+        private void OnInfoCine(string nombredueño, int numero)
+        {
+            if (InfoCine != null)
+            {
+                InfoCine(this, new CineEventArgs() { Nombre = nombredueño, Numero = numero });
+            }
+        }
+
+        public void CineInfo(string nombre, int num, string horario, int sala)
+        {
+
+            CineInfoRich.Text = "Nombre del Dueño: " + nombre + "\n" + "Numero Identificador: " + num + "\n " + "Horario de Atencion: " + horario + "\n " + "Cantidad de salas: " + sala;
+        }
+
+        private void CineInfoAtrasButton_Click(object sender, EventArgs e)
+        {
+            CineInfoRich.Text = " ";
+            CineInfoDueñoTextBox.Text = " ";
+            CineInfoNumeroTextBox.Text = " ";
+            CineInfoPanel.Visible = false;
+            PanelPrincipal.Visible = true;
+            PanelPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+        }
+
+        private void RevisarInfoCineButton_Click(object sender, EventArgs e)
+        {
+            RevisarLocalPanel.Visible = false;
+            CineInfoPanel.Visible = true;
+            CineInfoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+        }
+
+        private void RevisarInfoRestButton_Click(object sender, EventArgs e)
+        {
+            RevisarLocalPanel.Visible = false;
+            RestInfoPanel.Visible = true;
+            RestInfoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+        }
+        private void OnInfoRestaurante(string nombredueño, int numero)
+        {
+            if (InfoRestaurante != null)
+            {
+                InfoRestaurante(this, new RestauranteEventArgs() { Nombre = nombredueño, Numero = numero });
+            }
+        }
+
+        public void RestauranteInfo(string nombre, int num, string horario, string mesas)
+        {
+
+            RestInfoRich.Text = "Nombre del Dueño: " + nombre + "\n" + "Numero Identificador: " + num + "\n " + "Horario de Atencion: " + horario + "\n " + "Contiene mesas exclusivas: " + mesas;
+        }
+
+        private void RestInfoAtrasButton_Click(object sender, EventArgs e)
+        {
+            RestInfoRich.Text = " ";
+            RestInfoDueñoTextBox.Text = " ";
+            RestInfoNumeroTextBox.Text = " ";
+            RestInfoPanel.Visible = false;
+            PanelPrincipal.Visible = true;
+            PanelPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+        }
+
+        private void RestInfoVerButton_Click(object sender, EventArgs e)
+        {
+            string nombredueño = RestInfoDueñoTextBox.Text;
+            bool numcheck = false;
+            int numero;
+            numcheck = int.TryParse(RestInfoNumeroTextBox.Text, out numero);
+
+
+            if (numcheck)
+            {
+                OnInfoRestaurante(nombredueño, numero);
+
+            }
+            else
+            {
+                RestInfoExistTextrBox.Text = "Ese restaurante no existe";
+            }
+        }
+
+        private void RecInfoVerButton_Click(object sender, EventArgs e)
+        {
+            string nombredueño = RecInfoDueñoTextBox.Text;
+            bool numcheck = false;
+            int numero;
+            numcheck = int.TryParse(RecInfoNumeroTextBox.Text, out numero);
+
+
+            if (numcheck)
+            {
+                OnInfoRecreacional(nombredueño, numero);
+
+            }
+            else
+            {
+                RecInfoExistTextBox.Text = "Ese centro recreacional no existe";
+            }
+        }
+        private void OnInfoRecreacional(string nombredueño, int numero)
+        {
+            if (InfoRecreacional != null)
+            {
+                InfoRecreacional(this, new RecreacionalEventArgs() { Nombre = nombredueño, Numero = numero });
+            }
+        }
+
+        private void RecInfoAtrasButton_Click(object sender, EventArgs e)
+        {
+            RecInfoRich.Text = " ";
+            RecInfoDueñoTextBox.Text = " ";
+            RecInfoNumeroTextBox.Text = " ";
+            RecInfoPanel.Visible = false;
+            PanelPrincipal.Visible = true;
+            PanelPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+        }
+
+        private void RevisarInfoRecButtin_Click(object sender, EventArgs e)
+        {
+            RevisarLocalPanel.Visible = false;
+            RecInfoPanel.Visible = true;
+            RecInfoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+        }
+        public void RecreacionalInfo(string nombre, int num, string horario)
+        {
+            RecInfoRich.Text = "Nombre del Dueño: " + nombre + "\n" + "Numero Identificador: " + num + "\n " + "Horario de Atencion: " + horario;
         }
     }
 

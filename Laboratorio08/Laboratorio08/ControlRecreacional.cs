@@ -17,6 +17,7 @@ namespace Laboratorio08
             ReInitialize();
             this.view = view as Form1;
             this.view.RecreacionalCreate += OnRecreacionalCreate;
+            this.view.InfoRecreacional += OnInfoRecreacional;
         }
         public void ReInitialize()
         {
@@ -34,6 +35,22 @@ namespace Laboratorio08
             }
             recreacionales.Add(new Recreacional(e.Nombre, e.Numero, e.Horarios));
             return true;
+        }
+        public void OnInfoRecreacional(object sender, RecreacionalEventArgs e)
+        {
+
+            Recreacional rec = null;
+            rec = recreacionales.Where(t =>
+               t.NombreDueño.ToLower().Contains(e.Nombre.ToLower()) && t.Codigo == e.Numero).FirstOrDefault();
+            if (rec != null)
+            {
+                view.RecreacionalInfo(rec.NombreDueño, rec.Codigo, rec.Horario);
+            }
+            else
+            {
+                view.NoRec();
+            }
+
         }
     }
 }

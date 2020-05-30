@@ -491,6 +491,12 @@ namespace Laboratorio08
         {
             RecInfoRich.Text = "Nombre del Dueño: " + nombre + "\n" + "Numero Identificador: " + num + "\n " + "Horario de Atencion: " + horario;
         }
+
+        private void LocalesExistentesButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            
+        }
     }
 
 }

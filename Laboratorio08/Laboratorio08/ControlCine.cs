@@ -12,12 +12,15 @@ namespace Laboratorio08
         //metodos de cine, sus eventos
         List<Cine> cines = new List<Cine>();
         Form1 view;
-        public ControlCine(Form view)
+        Form2 vie;
+        public ControlCine(Form view, Form vie)
         {
             Initialize();
             this.view = view as Form1;
+            this.vie = vie as Form2;
             this.view.CineCreate += OnCineCreate;
             this.view.InfoCine += OnInfoCine;
+            this.vie.CineG += OnCineG;
         }
         public void Initialize()
         {
@@ -52,6 +55,11 @@ namespace Laboratorio08
                 view.NoCine();
             }
 
+        }
+        public void OnCineG(object sender, CineEventArgs e)
+        {
+            Cine cine = null;
+            
         }
     }
 }

@@ -235,6 +235,7 @@
             this.LocalesExistentesButton.TabIndex = 2;
             this.LocalesExistentesButton.Text = "LOCALES EXISTENTES";
             this.LocalesExistentesButton.UseVisualStyleBackColor = false;
+            this.LocalesExistentesButton.Click += new System.EventHandler(this.LocalesExistentesButton_Click);
             // 
             // AgregarLocalPanel
             // 
@@ -1369,7 +1370,7 @@
             // 
             // textBox18
             // 
-            this.textBox18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.textBox18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.textBox18.Dock = System.Windows.Forms.DockStyle.Top;
             this.textBox18.Location = new System.Drawing.Point(0, 20);
             this.textBox18.Name = "textBox18";
@@ -1380,7 +1381,7 @@
             // 
             // textBox19
             // 
-            this.textBox19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.textBox19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.textBox19.Dock = System.Windows.Forms.DockStyle.Top;
             this.textBox19.Location = new System.Drawing.Point(0, 0);
             this.textBox19.Name = "textBox19";
@@ -1402,7 +1403,7 @@
             // 
             // RecInfoVerButton
             // 
-            this.RecInfoVerButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.RecInfoVerButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.RecInfoVerButton.Location = new System.Drawing.Point(98, 153);
             this.RecInfoVerButton.Name = "RecInfoVerButton";
             this.RecInfoVerButton.Size = new System.Drawing.Size(75, 23);
@@ -1441,7 +1442,7 @@
             // 
             // RecInfoAtrasButton
             // 
-            this.RecInfoAtrasButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.RecInfoAtrasButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.RecInfoAtrasButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.RecInfoAtrasButton.Location = new System.Drawing.Point(53, 70);
             this.RecInfoAtrasButton.Name = "RecInfoAtrasButton";

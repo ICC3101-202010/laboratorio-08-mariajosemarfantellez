@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Laboratorio08
 {
-    class Cine : Locales
+    public class Cine : Locales
     {
         private int numerosalas;
         public Cine (string NombreDueño, int Codigo, string Horario, int numerosalas) : base(NombreDueño,Codigo,Horario)

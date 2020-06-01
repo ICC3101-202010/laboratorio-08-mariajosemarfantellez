@@ -12,12 +12,16 @@ namespace Laboratorio08
         //metodos de restaurante, sus eventos
         List<Restaurante> restaurantes = new List<Restaurante>();
         Form1 view;
-        public ControlRestaurante(Form view)
+        Form2 vie;
+        public ControlRestaurante(Form1 view, Form2 vie)
         {
             RInitialize();
             this.view = view as Form1;
+            this.vie = vie as Form2;
             this.view.RestauranteCreate += OnRestauranteCreate;
             this.view.InfoRestaurante += OnInfoRestaurante;
+            this.vie.RestG += OnRestG;
+
         }
         public void RInitialize()
         {
@@ -51,5 +55,10 @@ namespace Laboratorio08
                 view.NoRest();
             }
         }
+        public List<Restaurante> OnRestG(object sender, RestauranteEventArgs e)
+        {
+            return restaurantes;
+        }
     }
+
 }

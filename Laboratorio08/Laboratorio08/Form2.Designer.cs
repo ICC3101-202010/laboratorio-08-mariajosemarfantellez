@@ -29,15 +29,16 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.TiendasRich = new System.Windows.Forms.RichTextBox();
+            this.RecExistentesButton = new System.Windows.Forms.Button();
+            this.RestauranteExistenteButton = new System.Windows.Forms.Button();
+            this.TiendasExistentesButton = new System.Windows.Forms.Button();
             this.CinesRich = new System.Windows.Forms.RichTextBox();
-            this.RestRich = new System.Windows.Forms.RichTextBox();
             this.RecRich = new System.Windows.Forms.RichTextBox();
+            this.RestRich = new System.Windows.Forms.RichTextBox();
+            this.TiendasRich = new System.Windows.Forms.RichTextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.CinesExistentesButton = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,15 +50,16 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.Controls.Add(this.RecExistentesButton, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.RestauranteExistenteButton, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.TiendasExistentesButton, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.CinesRich, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.RecRich, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.RestRich, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.CinesRich, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label4, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.TiendasRich, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.button1, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.CinesExistentesButton, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 2, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -68,89 +70,85 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // label1
+            // RecExistentesButton
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(194, 112);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "TIENDAS EXISTENTES";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.RecExistentesButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.RecExistentesButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RecExistentesButton.Location = new System.Drawing.Point(603, 3);
+            this.RecExistentesButton.Name = "RecExistentesButton";
+            this.RecExistentesButton.Size = new System.Drawing.Size(194, 106);
+            this.RecExistentesButton.TabIndex = 14;
+            this.RecExistentesButton.Text = "CENTROS RECREACIONALES EXISTENTES";
+            this.RecExistentesButton.UseVisualStyleBackColor = false;
+            this.RecExistentesButton.Click += new System.EventHandler(this.RecExistentesButton_Click);
             // 
-            // label2
+            // RestauranteExistenteButton
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Location = new System.Drawing.Point(203, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(194, 112);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "CINES EXISTENTES";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.RestauranteExistenteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.RestauranteExistenteButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RestauranteExistenteButton.Location = new System.Drawing.Point(403, 3);
+            this.RestauranteExistenteButton.Name = "RestauranteExistenteButton";
+            this.RestauranteExistenteButton.Size = new System.Drawing.Size(194, 106);
+            this.RestauranteExistenteButton.TabIndex = 13;
+            this.RestauranteExistenteButton.Text = "RESTAURANTES EXISTENTES";
+            this.RestauranteExistenteButton.UseVisualStyleBackColor = false;
+            this.RestauranteExistenteButton.Click += new System.EventHandler(this.RestauranteExistenteButton_Click);
             // 
-            // label3
+            // TiendasExistentesButton
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Location = new System.Drawing.Point(403, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(194, 112);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "RESTAURANTES EXISTENTES";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Location = new System.Drawing.Point(603, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(194, 112);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "CENTROS RECREACIONALES EXISTENTES";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // TiendasRich
-            // 
-            this.TiendasRich.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TiendasRich.Location = new System.Drawing.Point(3, 115);
-            this.TiendasRich.Name = "TiendasRich";
-            this.TiendasRich.Size = new System.Drawing.Size(194, 219);
-            this.TiendasRich.TabIndex = 4;
-            this.TiendasRich.Text = "";
+            this.TiendasExistentesButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.TiendasExistentesButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TiendasExistentesButton.Location = new System.Drawing.Point(3, 3);
+            this.TiendasExistentesButton.Name = "TiendasExistentesButton";
+            this.TiendasExistentesButton.Size = new System.Drawing.Size(194, 106);
+            this.TiendasExistentesButton.TabIndex = 12;
+            this.TiendasExistentesButton.Text = "TIENDAS EXISTENTES";
+            this.TiendasExistentesButton.UseVisualStyleBackColor = false;
+            this.TiendasExistentesButton.Click += new System.EventHandler(this.TiendasExistentesButton_Click);
             // 
             // CinesRich
             // 
             this.CinesRich.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CinesRich.Font = new System.Drawing.Font("Microsoft Tai Le", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CinesRich.Location = new System.Drawing.Point(203, 115);
             this.CinesRich.Name = "CinesRich";
+            this.CinesRich.ReadOnly = true;
             this.CinesRich.Size = new System.Drawing.Size(194, 219);
-            this.CinesRich.TabIndex = 5;
+            this.CinesRich.TabIndex = 9;
             this.CinesRich.Text = "";
-            // 
-            // RestRich
-            // 
-            this.RestRich.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RestRich.Location = new System.Drawing.Point(403, 115);
-            this.RestRich.Name = "RestRich";
-            this.RestRich.Size = new System.Drawing.Size(194, 219);
-            this.RestRich.TabIndex = 6;
-            this.RestRich.Text = "";
             // 
             // RecRich
             // 
             this.RecRich.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RecRich.Font = new System.Drawing.Font("Microsoft Tai Le", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RecRich.Location = new System.Drawing.Point(603, 115);
             this.RecRich.Name = "RecRich";
+            this.RecRich.ReadOnly = true;
             this.RecRich.Size = new System.Drawing.Size(194, 219);
             this.RecRich.TabIndex = 7;
             this.RecRich.Text = "";
+            // 
+            // RestRich
+            // 
+            this.RestRich.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RestRich.Font = new System.Drawing.Font("Microsoft Tai Le", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RestRich.Location = new System.Drawing.Point(403, 115);
+            this.RestRich.Name = "RestRich";
+            this.RestRich.ReadOnly = true;
+            this.RestRich.Size = new System.Drawing.Size(194, 219);
+            this.RestRich.TabIndex = 6;
+            this.RestRich.Text = "";
+            // 
+            // TiendasRich
+            // 
+            this.TiendasRich.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TiendasRich.Font = new System.Drawing.Font("Microsoft Tai Le", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TiendasRich.Location = new System.Drawing.Point(3, 115);
+            this.TiendasRich.Name = "TiendasRich";
+            this.TiendasRich.ReadOnly = true;
+            this.TiendasRich.Size = new System.Drawing.Size(194, 219);
+            this.TiendasRich.TabIndex = 4;
+            this.TiendasRich.Text = "";
             // 
             // button1
             // 
@@ -162,6 +160,29 @@
             this.button1.Text = "CERRAR";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // CinesExistentesButton
+            // 
+            this.CinesExistentesButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.CinesExistentesButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CinesExistentesButton.Location = new System.Drawing.Point(203, 3);
+            this.CinesExistentesButton.Name = "CinesExistentesButton";
+            this.CinesExistentesButton.Size = new System.Drawing.Size(194, 106);
+            this.CinesExistentesButton.TabIndex = 10;
+            this.CinesExistentesButton.Text = "CINES EXISTENTES";
+            this.CinesExistentesButton.UseVisualStyleBackColor = false;
+            this.CinesExistentesButton.Click += new System.EventHandler(this.CinesExistentesButton_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Location = new System.Drawing.Point(403, 337);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(194, 113);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "PRESIONE EL BOTON DE LOS LOCALES QUE DESEE VER";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form2
             // 
@@ -180,14 +201,15 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RichTextBox RecRich;
         private System.Windows.Forms.RichTextBox RestRich;
-        private System.Windows.Forms.RichTextBox CinesRich;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RichTextBox TiendasRich;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.RichTextBox CinesRich;
+        private System.Windows.Forms.Button CinesExistentesButton;
+        private System.Windows.Forms.Button TiendasExistentesButton;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button RecExistentesButton;
+        private System.Windows.Forms.Button RestauranteExistenteButton;
     }
 }

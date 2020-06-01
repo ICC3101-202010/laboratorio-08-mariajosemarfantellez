@@ -12,20 +12,6 @@ namespace Laboratorio08
 {
     public partial class Form1 : Form
     {
-        /*
-        private void Save()
-        {
-            string path = Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, @"..\..\info.bin"));
-            IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream(path, FileMode.Create, FileAccess.Write, FileShare.None);
-            formatter.Serialize(stream, ControlCine.cines);
-            formatter.Serialize(stream, mediaPlayer.Songs);
-            formatter.Serialize(stream, mediaPlayer.Karaokes);
-            formatter.Serialize(stream, mediaPlayer.Videos);
-            formatter.Serialize(stream, mediaPlayer.Series);
-            stream.Close();
-        }
-        */
 
         public delegate bool CineEventHandler(object source, CineEventArgs args);
         public event CineEventHandler CineCreate;
@@ -44,22 +30,6 @@ namespace Laboratorio08
         {
             InitializeComponent();
             PanelPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-
-            /*
-            string path = Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, @"..\..\info.bin"));
-            if (File.Exists(path))
-            {
-                IFormatter formatter = new BinaryFormatter();
-                Stream stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read);
-                Gate.Users = (List<User>)formatter.Deserialize(stream);
-                mediaPlayer.Songs = (List<Song>)formatter.Deserialize(stream);
-                mediaPlayer.Karaokes = (List<Karaoke>)formatter.Deserialize(stream);
-                mediaPlayer.Videos =(List<Video>)formatter.Deserialize(stream);
-                mediaPlayer.Series = (List<Serie>)formatter.Deserialize(stream);
-                stream.Close();
-            } 
-             
-             */
         }
 
         private void AgregarLocalButton_Click(object sender, EventArgs e)
@@ -276,6 +246,10 @@ namespace Laboratorio08
 
         private void RevisarInformacionButton_Click(object sender, EventArgs e)
         {
+            CineInfoExistTextBox.Text = "";
+            TiendaInfoExistTextBox.Text = "";
+            RestInfoExistTextrBox.Text = "";
+            RecInfoExistTextBox.Text = "";
             PanelPrincipal.Visible = false;
             RevisarLocalPanel.Visible = true;
             RevisarLocalPanel.Dock = System.Windows.Forms.DockStyle.Fill;

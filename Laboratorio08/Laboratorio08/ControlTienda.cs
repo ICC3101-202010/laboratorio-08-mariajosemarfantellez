@@ -9,14 +9,17 @@ namespace Laboratorio08
     public class ControlTienda
     {
         //metodos de tienda, sus eventos
-        static List<Tienda> tiendas = new List<Tienda>();
+        List<Tienda> tiendas = new List<Tienda>();
         Form1 view;
-        public ControlTienda(Form view)
+        Form2 vie;
+        public ControlTienda(Form1 view, Form2 vie)
         {
             TInitialize();
             this.view = view as Form1;
+            this.vie = vie as Form2;
             this.view.TiendaCreate += OnTiendaCreate;
             this.view.InfoTienda += OnInfoTienda;
+            this.vie.TiendaG += OnTiendaG;
         }
         public void TInitialize()
         {
@@ -50,8 +53,11 @@ namespace Laboratorio08
                 view.NoTienda();
             }
         }
+        public List<Tienda> OnTiendaG(object sender, TiendaEventArgs e)
+        {
+            return tiendas;
+        }
 
-        
 
 
     }

@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
+using System.Drawing;
+using System.IO;
 using System.Linq;
-using System.Text;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
-using System.Threading.Tasks;
 
 namespace Laboratorio08
 {
@@ -13,7 +16,7 @@ namespace Laboratorio08
         List<Cine> cines = new List<Cine>();
         Form1 view;
         Form2 vie;
-        public ControlCine(Form view, Form vie)
+        public ControlCine(Form1 view, Form2 vie)
         {
             Initialize();
             this.view = view as Form1;
@@ -56,10 +59,9 @@ namespace Laboratorio08
             }
 
         }
-        public void OnCineG(object sender, CineEventArgs e)
+        public List<Cine> OnCineG(object sender, CineEventArgs e)
         {
-            Cine cine = null;
-            
+            return cines;
         }
     }
 }

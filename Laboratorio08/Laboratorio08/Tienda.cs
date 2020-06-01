@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Laboratorio08
 {
-    class Tienda : Locales
+    public class Tienda : Locales
     {
         private string categoriatienda;
 

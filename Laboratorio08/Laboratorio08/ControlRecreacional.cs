@@ -12,12 +12,15 @@ namespace Laboratorio08
         //metodos de recreacional, sus eventos
         List<Recreacional> recreacionales = new List<Recreacional>();
         Form1 view;
-        public ControlRecreacional(Form view)
+        Form2 vie;
+        public ControlRecreacional(Form1 view, Form2 vie)
         {
             ReInitialize();
             this.view = view as Form1;
+            this.vie = vie as Form2;
             this.view.RecreacionalCreate += OnRecreacionalCreate;
             this.view.InfoRecreacional += OnInfoRecreacional;
+            this.vie.RecG += OnRecG;
         }
         public void ReInitialize()
         {
@@ -51,6 +54,10 @@ namespace Laboratorio08
                 view.NoRec();
             }
 
+        }
+        public List<Recreacional> OnRecG(object sender, RecreacionalEventArgs e)
+        {
+            return recreacionales;
         }
     }
 }
